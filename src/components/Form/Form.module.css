@@ -1,0 +1,64 @@
+.formTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont;
+}
+
+.inputContainer {
+    text-align: right;
+    margin-bottom: 1.25rem;
+}
+
+.inputContainer p {
+    font-size: 0.75rem;
+    padding-top: 0.375px;
+    margin: 0;
+    color: #F7696B;
+}
+
+.form input,
+.form textarea {
+    padding: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    
+    border-radius: 0.25rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4)
+}
+
+.form span {
+    font-weight: 500;
+}
+
+.policyLink {
+    color: #FCB02D;
+    transition: all cubic-bezier(.645, .045, .355, 1) .35s;
+    text-decoration: none;
+}
+
+.policyLink:hover {
+    opacity: .8;
+}
+
+.customCheckbox {
+    margin-bottom: 2.5rem;
+}
+
+.buttonContainer {
+    text-align: center;
+}

@@ -1,11 +1,11 @@
 import "./App.css";
-import Button from "./components/Button/Button"
+import Form from "./components/Form/Form"
 
 function App() {
     return (
-        <>
-
-        </>
+        <div className="App">
+            <Form></Form>
+        </div>
     );
 }
 
