@@ -10,7 +10,7 @@
 	transition: all cubic-bezier(.645, .045, .355, 1) .35s;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
     background-color: #FCB02D;
     color: #fff;
 }
@@ -20,7 +20,13 @@
     box-shadow: 0 0 0 0.3125rem #eaeaea;
 }
 
-.formButton {
+.button:disabled {
+    cursor: default;
     background-color: #452AF4;
     color: rgba(255, 255, 255, .4)
+}
+
+.buttonDone {
+    background-color: #452AF4;
+    color: #fff;
 }

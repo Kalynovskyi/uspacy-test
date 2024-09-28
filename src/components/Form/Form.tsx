@@ -28,130 +28,6 @@ const CustomUncheckedIcon: React.FC = () => (
     </svg>
 );
 
-// const Form = () => {
-//     const [inputName, setInputName] = useState('');
-//     const [inputSurname, setInputSurname] = useState('');
-//     const [inputCompany, setInputCompany] = useState('');
-//     const [inputPhone, setInputPhone] = useState('');
-//     const [inputEmail, setInputEmail] = useState('');
-//     const [inputQuestion, setInputQuestion] = useState('');
-
-//     const nameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-//         setInputName(event.target.value)
-//     }
-
-//     const surnameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-//         setInputSurname(event.target.value)
-//     }
-
-//     const companyChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-//         setInputCompany(event.target.value)
-//     }
-
-//     const phoneChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-//         setInputPhone(event.target.value)
-//     }
-
-//     const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-//         setInputEmail(event.target.value)
-//     }
-
-//     const questionChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-//         setInputQuestion(event.target.value)
-//     }
-
-//     return (
-//         <>
-//             <h2 className={`${styles.formTitle}`}>
-//                 Відвідати онлайн-конференцію
-//             </h2>
-//             <form action="" className={`${styles.form}`}>
-//                 <label htmlFor="form_name">
-//                     <input
-//                         type="text"
-//                         id="form_name"
-//                         required
-//                         placeholder="Імʼя *"
-//                         value={inputName}
-//                         onChange={nameChangeHandler}
-//                     />
-//                 </label>
-//                 <label htmlFor="form_surname">
-//                     <input
-//                         type="text"
-//                         id="form_surname"
-//                         required
-//                         placeholder="Прізвище *"
-//                         value={inputSurname}
-//                         onChange={surnameChangeHandler}
-//                     />
-//                 </label>
-//                 <label htmlFor="form_company">
-//                     <input
-//                         type="text"
-//                         id="form_company"
-//                         required
-//                         placeholder="Компанія *"
-//                         value={inputCompany}
-//                         onChange={companyChangeHandler}
-//                     />
-//                 </label>
-//                 <label htmlFor="form_phone">
-//                     <input
-//                         type="tel"
-//                         id="form_phone"
-//                         required
-//                         placeholder="Номер мобільного телефону *"
-//                         value={inputPhone}
-//                         onChange={phoneChangeHandler}
-//                     />
-//                 </label>
-//                 <label htmlFor="form_email">
-//                     <input
-//                         type="email"
-//                         id="form_email"
-//                         required
-//                         placeholder="Адреса електронної пошти *"
-//                         value={inputEmail}
-//                         onChange={emailChangeHandler}
-//                     />
-//                 </label>
-//                 <label htmlFor="form_question">
-//                     <textarea
-//                         name="form_question"
-//                         id="form_question"
-//                         placeholder="Якщо бажаєте, то поставте своє запитання та вкажіть кому саме и б хотіли його поставити*"
-//                         value={inputQuestion}
-//                         onChange={questionChangeHandler}
-//                     ></textarea>
-//                 </label>
-//                 <label
-//                     htmlFor="form_policy"
-//                     className={`${styles.customCheckbox}`}
-//                 >
-//                     <Checkbox
-//                         sx={{
-//                             width: 24,
-//                             height: 24,
-//                             padding: "0.436rem 0.313rem",
-//                         }}
-//                         icon={<CustomUncheckedIcon />}
-//                         checkedIcon={<CustomCheckedIcon />}
-//                     ></Checkbox>
-//                     <span>
-//                         Реєструючись, я повністю погоджуюся з{" "}
-//                         <a href="#" className={`${styles.policyLink}`}>
-//                             Політикою конфіденційності Uspacy
-//                         </a>
-//                     </span>
-//                 </label>
-
-//                 <Button className="formButton" type="submit">Зареєструватися</Button>
-//             </form>
-//         </>
-//     );
-// };
-
 interface IFormInput {
     name: string;
     surname: string;
@@ -159,14 +35,17 @@ interface IFormInput {
     phone: string;
     email: string;
     question: string;
+    checkbox: string;
 }
 
 const Form: React.FC = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
-    } = useForm<IFormInput>();
+        formState: { errors, isValid },
+    } = useForm<IFormInput>({
+        mode: "onChange",
+    });
 
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
         console.log("Form Data:", data);
@@ -181,11 +60,15 @@ const Form: React.FC = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className={`${styles.form}`}
             >
-                <div className={`${styles.inputContainer}`}>
+                <div
+                    className={`${styles.inputContainer} ${
+                        errors.name ? styles.invalid : ""
+                    }`}
+                    data-field-name="Імʼя *"
+                >
                     <input
                         type="text"
                         placeholder="Імʼя *"
-                        className={errors.name ? "invalid" : ""}
                         {...register("name", {
                             required: "Це поле обов'язкове",
                             minLength: {
@@ -198,11 +81,15 @@ const Form: React.FC = () => {
 
                     {errors.name && <p>{errors.name.message}</p>}
                 </div>
-                <div className={`${styles.inputContainer}`}>
+                <div
+                    className={`${styles.inputContainer} ${
+                        errors.surname ? styles.invalid : ""
+                    }`}
+                    data-field-name="Прізвище *"
+                >
                     <input
                         type="text"
                         placeholder="Прізвище *"
-                        className={errors.name ? "invalid" : ""}
                         {...register("surname", {
                             required: "Це поле обов'язкове",
                             minLength: {
@@ -215,11 +102,15 @@ const Form: React.FC = () => {
                     {errors.surname && <p>{errors.surname.message}</p>}
                 </div>
 
-                <div className={`${styles.inputContainer}`}>
+                <div
+                    className={`${styles.inputContainer} ${
+                        errors.company ? styles.invalid : ""
+                    }`}
+                    data-field-name="Компанія *"
+                >
                     <input
                         type="text"
                         placeholder="Компанія *"
-                        className={errors.name ? "invalid" : ""}
                         {...register("company", {
                             required: "Це поле обов'язкове",
                         })}
@@ -227,11 +118,15 @@ const Form: React.FC = () => {
                     {errors.company && <p>{errors.company.message}</p>}
                 </div>
 
-                <div className={`${styles.inputContainer}`}>
+                <div
+                    className={`${styles.inputContainer} ${
+                        errors.phone ? styles.invalid : ""
+                    }`}
+                    data-field-name="Номер мобільного телефону *"
+                >
                     <input
                         type="tel"
                         placeholder="Номер мобільного телефону *"
-                        className={errors.name ? "invalid" : ""}
                         {...register("phone", {
                             required: "Це поле обов'язкове",
                             pattern: {
@@ -252,11 +147,15 @@ const Form: React.FC = () => {
                     {errors.phone && <p>{errors.phone.message}</p>}
                 </div>
 
-                <div className={`${styles.inputContainer}`}>
+                <div
+                    className={`${styles.inputContainer} ${
+                        errors.email ? styles.invalid : ""
+                    }`}
+                    data-field-name="Адреса електронної пошти *"
+                >
                     <input
                         type="email"
                         placeholder="Адреса електронної пошти *"
-                        className={errors.name ? "invalid" : ""}
                         {...register("email", {
                             required: "Це поле обов'язкове",
                             pattern: {
@@ -278,7 +177,11 @@ const Form: React.FC = () => {
                     className={`${styles.customCheckbox}`}
                 >
                     <Checkbox
+                        {...register("checkbox", {
+                            required: "Це поле обов'язкове",
+                        })}
                         required
+                        id="form_policy"
                         sx={{
                             width: 24,
                             height: 24,
@@ -295,7 +198,11 @@ const Form: React.FC = () => {
                     </span>
                 </label>
                 <div className={`${styles.buttonContainer}`}>
-                    <Button type="submit" className="formButton">
+                    <Button
+                        type="submit"
+                        className={`${isValid ? "buttonDone" : ""}`}
+                        disabled={!isValid}
+                    >
                         Зареєструватися
                     </Button>
                 </div>
