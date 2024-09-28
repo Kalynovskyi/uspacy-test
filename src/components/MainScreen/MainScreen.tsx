@@ -1,14 +1,16 @@
 import Button from "../Button/Button";
+import Typewriter from "../Typewriter/Typewriter";
 import styles from "./MainScreen.module.css";
 
 const MainScreen = () => {
+    const typewriterArr = ['підприємництво', 'мрію', 'перемогу', 'сенси', 'майбутнє', 'лідерство', 'місію', 'бізнес', 'візію', 'допомогу']
     return (
         <div className={styles['main-screen']}>
             <div className={styles.subtitle}>
                 <span className={styles.subtitleName}>Онлайн-конференція</span>{" "}
                 <span className={styles.subtitleDate}>30 квітня о 10:00</span>
             </div>
-            <h1 className={styles.mainTitle}>Ми віримо у підприємництво</h1>
+            <h1 className={styles.mainTitle}>Ми віримо <Typewriter stringsArr={typewriterArr}/></h1>
 
             <Button>Зареєструватися</Button>
 
