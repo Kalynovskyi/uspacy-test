@@ -1,8 +1,13 @@
 .App {
   background-image: url(./images/image\ 4.jpg);
+  background-size: cover;
 }
 
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.main-screen-container {
+  height: 100vh;
 }
