@@ -3,6 +3,7 @@ import { Box, Fade } from "@mui/material";
 
 interface TypewriterProps {
     stringsArr: string[];
+    pageIsLoaded: boolean
 }
 
 const Typewriter = (props: TypewriterProps) => {
@@ -12,24 +13,27 @@ const Typewriter = (props: TypewriterProps) => {
     const [showText, setShowText] = useState(true);
 
     useEffect(() => {
-        setLoaded(true);
-        const intervalId = setInterval(() => {
-            setShowText(false);
-
-            setTimeout(() => {
-                setCurrentIndex(
-                    (currentIndex) => (currentIndex + 1) % typingStrings.length
-                );
-                setShowText(true);
-            }, 300);
-        }, 3000);
-
-        return () => clearInterval(intervalId);
-    }, [currentIndex, typingStrings.length]);
+        if (props.pageIsLoaded) {
+            setLoaded(true);
+            const intervalId = setInterval(() => {
+                setShowText(false);
+    
+                setTimeout(() => {
+                    setCurrentIndex(
+                        (currentIndex) => (currentIndex + 1) % typingStrings.length
+                    );
+                    setShowText(true);
+                }, 300);
+            }, 3000);
+    
+            return () => clearInterval(intervalId);
+        }
+        
+    }, [currentIndex, typingStrings.length, props.pageIsLoaded]);
 
     return (
         <>
-            <Fade in={showText} timeout={500}>
+            <Fade in={props.pageIsLoaded && showText} timeout={500}>
                 <Box component="span">{typingStrings[currentIndex]}</Box>
             </Fade>
         </>

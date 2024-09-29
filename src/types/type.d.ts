@@ -1,0 +1,3 @@
+interface pageIsLoadedInterface {
+    pageIsLoaded: boolean
+}

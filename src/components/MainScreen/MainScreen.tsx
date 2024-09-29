@@ -1,9 +1,9 @@
 import Button from "../Button/Button";
 import Typewriter from "../Typewriter/Typewriter";
 import styles from "./MainScreen.module.css";
-import { Slide, Grow } from "@mui/material";
+import { Slide, Grow, Fade } from "@mui/material";
 
-const MainScreen = () => {
+const MainScreen = (props: pageIsLoadedInterface) => {
     const typewriterArr = [
         "підприємництво",
         "мрію",
@@ -16,37 +16,56 @@ const MainScreen = () => {
         "візію",
         "допомогу",
     ];
-
+    console.log(props.pageIsLoaded);
     return (
         <div className={styles["main-screen"]}>
-            <div className={styles['subtitle']}>
-                <span className={styles["subtitle-name"]}>
-                    <Slide direction="right" in={true} timeout={500}>
+            <div className={styles["subtitle"]}>
+                <span
+                    className={`${styles["subtitle-name"]} ${
+                        props.pageIsLoaded ? styles["subtitle-name-loaded"] : ""
+                    }`}
+                >
+                    <Slide
+                        direction="right"
+                        in={props.pageIsLoaded}
+                        timeout={500}
+                    >
                         <span>Онлайн-конференція</span>
                     </Slide>
                 </span>
                 <span className={styles["subtitle-date"]}>
-                    <Slide direction="left" in={true} timeout={500}>
+                    <Slide
+                        direction="left"
+                        in={props.pageIsLoaded}
+                        timeout={500}
+                    >
                         <span>30 квітня о 10:00</span>
                     </Slide>
                 </span>
             </div>
-            <h1 className={styles["main-title"]}>
-                Ми віримо у <br /> <Typewriter stringsArr={typewriterArr} />
-            </h1>
-            <Grow in={true} timeout={500}>
+            <Fade in={props.pageIsLoaded} timeout={500}>
+                <h1 className={styles["main-title"]}>
+                    Ми віримо у <br />{" "}
+                    <Typewriter
+                        pageIsLoaded={props.pageIsLoaded}
+                        stringsArr={typewriterArr}
+                    />
+                </h1>
+            </Fade>
+
+            <Grow in={props.pageIsLoaded} timeout={500}>
                 <div>
                     <Button className="button-done">Зареєструватися</Button>
                 </div>
             </Grow>
 
             <div className={styles["description-block"]}>
-                <Slide direction="right" in={true} timeout={500}>
+                <Slide direction="right" in={props.pageIsLoaded} timeout={500}>
                     <h2 className={styles["description-title"]}>
                         Про що ця <br /> онлайн-конференція
                     </h2>
                 </Slide>
-                <Slide direction="left" in={true} timeout={500}>
+                <Slide direction="left" in={props.pageIsLoaded} timeout={500}>
                     <p className={styles["description-subtitle"]}>
                         {" "}
                         Щодня ми ходимо на роботу, зустрічаємося з друзями,

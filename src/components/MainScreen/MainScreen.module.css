@@ -31,6 +31,12 @@
     top: 0;
     right: -20px;
     transform: translateY(-25%) rotate(30deg);
+    transition: all cubic-bezier(.645, .045, .355, 1) .35s;
+    opacity: 0;
+}
+
+.subtitle-name-loaded:after {
+    opacity: 1;
 }
 
 .main-title {

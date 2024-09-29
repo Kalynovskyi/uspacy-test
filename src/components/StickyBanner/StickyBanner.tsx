@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
 import styles from "./StickyBanner.module.css";
 import { Slide } from "@mui/material";
 
-const StickyBanner = () => {
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        setIsLoaded(true);
-    }, [isLoaded])
+const StickyBanner = ( props: pageIsLoadedInterface ) => {
 
     return (
-        <Slide direction="up" in={isLoaded} timeout={500}>
+        <Slide direction="up" in={props.pageIsLoaded} timeout={500}>
             <div className={styles["sticky-banner"]}>
                 <p className={styles["sticky-banner-title"]}>
                     Безкоштовна онлайн-конференція
