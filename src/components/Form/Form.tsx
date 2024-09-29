@@ -6,13 +6,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 const CustomCheckedIcon: React.FC = () => (
     <svg
-        width="17"
-        height="14"
-        viewBox="0 0 17 14"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <path d="M1 6L7 11L15 1" stroke="white" strokeWidth="3" />
+        <rect width="24" height="24" rx="4" fill="white" fillOpacity="0.05" />
+        <path d="M5 12L11 17L19 7" stroke="white" strokeWidth="3" />
     </svg>
 );
 
@@ -52,7 +53,7 @@ const Form: React.FC = () => {
     };
 
     return (
-        <>
+        <div className={styles["form-container"]}>
             <h2 className={`${styles.formTitle}`}>
                 Відвідати <br /> онлайн-конференцію
             </h2>
@@ -131,16 +132,16 @@ const Form: React.FC = () => {
                             required: "Це поле обов'язкове",
                             pattern: {
                                 value: /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/,
-                                message: "Invalid phone number format",
+                                message: "Некорректний формат телефону",
                             },
                             minLength: {
                                 value: 10,
                                 message:
-                                    "Phone number must be at least 10 digits long",
+                                    "Телефонний номер має містити більше 10 цифр",
                             },
                             maxLength: {
                                 value: 15,
-                                message: "Phone number cannot exceed 15 digits",
+                                message: "Телефонний номер не має містити більше 15 цифр",
                             },
                         })}
                     />
@@ -160,18 +161,20 @@ const Form: React.FC = () => {
                             required: "Це поле обов'язкове",
                             pattern: {
                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                message: "Invalid email address",
+                                message: "Некорректна електронна пошта",
                             },
                         })}
                     />
                     {errors.email && <p>{errors.email.message}</p>}
                 </div>
-                <textarea
-                    name="form_question"
-                    id="form_question"
-                    placeholder="Якщо бажаєте, то поставте своє запитання та вкажіть кому саме и б хотіли його поставити*"
-                ></textarea>
-
+                <div className={styles.inputContainer} data-field-name="Запитання">
+                    <textarea
+                        rows={3}
+                        name="form_question"
+                        id="form_question"
+                        placeholder="Якщо бажаєте, то поставте своє запитання та вкажіть кому саме и б хотіли його поставити*"
+                    ></textarea>
+                </div>
                 <label
                     htmlFor="form_policy"
                     className={`${styles.customCheckbox}`}
@@ -185,7 +188,8 @@ const Form: React.FC = () => {
                         sx={{
                             width: 24,
                             height: 24,
-                            padding: "0.436rem 0.313rem",
+                            padding: "0",
+                            marginRight: "1.25rem",
                         }}
                         icon={<CustomUncheckedIcon />}
                         checkedIcon={<CustomCheckedIcon />}
@@ -207,7 +211,7 @@ const Form: React.FC = () => {
                     </Button>
                 </div>
             </form>
-        </>
+        </div>
     );
 };
 
