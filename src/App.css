@@ -11,6 +11,8 @@
   height: 100%;
   background-image: url(./images/bg-image.png);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -20rem;
   filter: blur(100px);
 }
 
@@ -19,4 +21,11 @@
   margin: 0 auto;
   padding: 0 1.25rem;
   z-index: 1;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .bg-image-container {
+    background-position: -50rem 0;
+  }
 }

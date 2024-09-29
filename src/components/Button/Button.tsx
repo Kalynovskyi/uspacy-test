@@ -17,7 +17,7 @@ const Button = (props: ButtonProps) => {
         <button
             onClick={props.onClick}
             type={buttonType}
-            className={`${styles.button} ${className ? styles.buttonDone : ""}`}
+            className={`${styles['button']} ${className ? styles['button-done'] : ""}`}
             disabled={props.disabled}
         >
             <span className={props.isMobileIcon ? styles['button-with-icon'] : ""} >{props.children}</span>

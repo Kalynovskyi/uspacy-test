@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import Typewriter from "../Typewriter/Typewriter";
 import styles from "./MainScreen.module.css";
-import { Slide, Grow, useMediaQuery } from "@mui/material";
+import { Slide, Grow } from "@mui/material";
 
 const MainScreen = () => {
     const typewriterArr = [
@@ -17,18 +17,16 @@ const MainScreen = () => {
         "допомогу",
     ];
 
-    const screenSm = useMediaQuery('(max-width:576px)');
-
     return (
         <div className={styles["main-screen"]}>
-            <div className={styles.subtitle}>
+            <div className={styles['subtitle']}>
                 <span className={styles["subtitle-name"]}>
                     <Slide direction="right" in={true} timeout={500}>
                         <span>Онлайн-конференція</span>
                     </Slide>
                 </span>
                 <span className={styles["subtitle-date"]}>
-                    <Slide direction={screenSm ? 'right' : 'left'} in={true} timeout={500}>
+                    <Slide direction="left" in={true} timeout={500}>
                         <span>30 квітня о 10:00</span>
                     </Slide>
                 </span>

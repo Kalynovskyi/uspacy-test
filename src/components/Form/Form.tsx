@@ -79,16 +79,16 @@ const Form: React.FC = () => {
     return (
         <Fade in={isFormVisible} timeout={500}>
             <div className={styles["form-container"]} ref={formRef}>
-                <h3 className={`${styles.formTitle}`}>
+                <h3 className={styles['form-title']}>
                     Відвідати <br /> онлайн-конференцію
                 </h3>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className={`${styles.form}`}
+                    className={`${styles['form']}`}
                 >
                     <div
-                        className={`${styles.inputContainer} ${
-                            errors.name ? styles.invalid : ""
+                        className={`${styles['input-container']} ${
+                            errors.name ? styles['invalid'] : ""
                         }`}
                         data-field-name="Імʼя *"
                     >
@@ -108,8 +108,8 @@ const Form: React.FC = () => {
                         {errors.name && <p>{errors.name.message}</p>}
                     </div>
                     <div
-                        className={`${styles.inputContainer} ${
-                            errors.surname ? styles.invalid : ""
+                        className={`${styles['input-container']} ${
+                            errors.surname ? styles['invalid'] : ""
                         }`}
                         data-field-name="Прізвище *"
                     >
@@ -129,8 +129,8 @@ const Form: React.FC = () => {
                     </div>
 
                     <div
-                        className={`${styles.inputContainer} ${
-                            errors.company ? styles.invalid : ""
+                        className={`${styles['input-container']} ${
+                            errors.company ? styles['invalid'] : ""
                         }`}
                         data-field-name="Компанія *"
                     >
@@ -145,8 +145,8 @@ const Form: React.FC = () => {
                     </div>
 
                     <div
-                        className={`${styles.inputContainer} ${
-                            errors.phone ? styles.invalid : ""
+                        className={`${styles['input-container']} ${
+                            errors.phone ? styles['invalid'] : ""
                         }`}
                         data-field-name="Номер мобільного телефону *"
                     >
@@ -175,8 +175,8 @@ const Form: React.FC = () => {
                     </div>
 
                     <div
-                        className={`${styles.inputContainer} ${
-                            errors.email ? styles.invalid : ""
+                        className={`${styles['input-container']} ${
+                            errors.email ? styles['invalid'] : ""
                         }`}
                         data-field-name="Адреса електронної пошти *"
                     >
@@ -194,7 +194,7 @@ const Form: React.FC = () => {
                         {errors.email && <p>{errors.email.message}</p>}
                     </div>
                     <div
-                        className={styles.inputContainer}
+                        className={styles['input-container']}
                         data-field-name="Запитання"
                     >
                         <textarea
@@ -206,7 +206,7 @@ const Form: React.FC = () => {
                     </div>
                     <label
                         htmlFor="form_policy"
-                        className={`${styles.customCheckbox}`}
+                        className={`${styles['custom-checkbox']}`}
                     >
                         <Checkbox
                             {...register("checkbox", {
@@ -225,12 +225,12 @@ const Form: React.FC = () => {
                         ></Checkbox>
                         <span>
                             Реєструючись, я повністю погоджуюся з{" "}
-                            <a href="#" className={`${styles.policyLink}`}>
+                            <a href="#" className={styles['policy-link']}>
                                 Політикою конфіденційності Uspacy
                             </a>
                         </span>
                     </label>
-                    <div className={`${styles.buttonContainer}`}>
+                    <div className={`${styles['btn-container']}`}>
                         <Button
                             type="submit"
                             className={`${isValid ? "buttonDone" : ""}`}

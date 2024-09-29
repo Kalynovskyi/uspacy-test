@@ -1,5 +1,5 @@
 .sticky-banner {
-    width: 100vw;
+    width: calc(100vw - 1.25rem * 2 - 15px);
     padding: 0.875rem 1.25rem 1.125rem;
     background-color: #452AF4;
     color: #fff;
@@ -34,7 +34,8 @@
 @media screen and (max-width: 576px) {
     .sticky-banner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        width: calc(100% - 1.25rem * 2);
     }
 
     .sticky-banner-title,
@@ -50,7 +51,7 @@
     .sticky-banner-title:after {
         bottom: -0.625rem;
         top: initial;
-        left: 0;
+        left: calc(50% - 16.5px);
     }
 
 }

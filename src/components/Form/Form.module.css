@@ -5,7 +5,7 @@
     margin: 0 auto;
 }
 
-.formTitle {
+.form-title {
     font-size: clamp(1.5rem, 1.1528rem + 1.1111vw, 2rem);
     font-weight: 800;
     margin-bottom: 1.25rem;
@@ -14,16 +14,15 @@
 .form {
     display: flex;
     flex-direction: column;
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont;
 }
 
-.inputContainer {
+.input-container {
     text-align: right;
     margin-bottom: 1.25rem;
     position: relative;
 }
 
-.inputContainer:before {
+.input-container:before {
     content: attr(data-field-name);
     display: block;
     position: absolute;
@@ -39,9 +38,16 @@
     transition: all cubic-bezier(.645, .045, .355, 1) .35s;
 }
 
-.inputContainer:focus-within:before {
+.input-container:focus-within:before {
     opacity: 1;
     visibility: visible;
+}
+
+.input-container p {
+    font-size: 0.75rem;
+    padding-top: 0.375rem;
+    margin: 0;
+    color: #F7696B;
 }
 
 .form input,
@@ -70,50 +76,44 @@
     background-color: #F7696B;
 }
 
-.inputContainer p {
-    font-size: 0.75rem;
-    padding-top: 0.375rem;
-    margin: 0;
-    color: #F7696B;
-}
+
 
 .form input::placeholder,
 .form textarea::placeholder {
     color: rgba(255, 255, 255, 0.4);
     font-weight: 500;
-    font-family: "Manrope";
 }
 
 .form span {
     font-weight: 500;
 }
 
-.policyLink {
+.policy-link {
     color: #FCB02D;
     transition: all cubic-bezier(.645, .045, .355, 1) .35s;
     text-decoration: none;
 }
 
-.policyLink:hover {
+.policy-link:hover {
     opacity: .8;
 }
 
-.customCheckbox {
+.custom-checkbox {
     margin-bottom: 2.5rem;
     cursor: pointer;
     display: flex;
     align-items: flex-start;
 }
 
-.buttonContainer {
+.btn-container {
     text-align: center;
 }
 
 @media screen and (max-width: 576px) {
-    br {
+    .form-container br {
         display: none;
     }
-    
+
     .form-container {
         padding: 5rem 0 6.25rem;
     }

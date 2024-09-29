@@ -1,7 +1,6 @@
 .button {
     padding: 1.375rem 2.375rem;
     border-radius: 6.25rem;
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont;
     font-size: 1rem;
     font-weight: 600;
     background-color: #fff;
@@ -35,7 +34,7 @@
     color: rgba(255, 255, 255, .4)
 }
 
-.buttonDone {
+.button-done {
     background-color: #452AF4;
     color: #fff;
 }

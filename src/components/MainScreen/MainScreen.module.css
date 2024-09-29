@@ -61,7 +61,6 @@
     margin-left: 1.688rem;
     line-height: 36px;
     font-weight: 400;
-    font-family: 'Manrope';
 }
 
 .undertext {
@@ -108,7 +107,7 @@
 }
 
 @media screen and (max-width: 576px) {
-    br {
+    .description-title br {
         display: none;
     }
     .main-screen {
@@ -122,16 +121,23 @@
     .subtitle {
         width: 100%;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .subtitle-name {
-        margin-left: 0;
+        margin-right: 0;
         margin-bottom: 1rem;
     }
 
     .subtitle-name:after {
-        right: 0;
-        transform: translate(0) rotate(30deg);
+        left: calc(50% - 20px);
+        right: initial;
+        width: 40px;
+        transform: none;
+        height: 2px;
+        bottom: -.5rem;
+        top: initial;
     }
 
     .description-block {
