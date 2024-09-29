@@ -16,7 +16,7 @@ const MainScreen = (props: pageIsLoadedInterface) => {
         "візію",
         "допомогу",
     ];
-    console.log(props.pageIsLoaded);
+
     return (
         <div className={styles["main-screen"]}>
             <div className={styles["subtitle"]}>
