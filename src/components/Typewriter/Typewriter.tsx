@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./Typewriter.module.css";
+import { Box, Fade } from "@mui/material";
 
 interface TypewriterProps {
     stringsArr: string[];
@@ -7,30 +7,33 @@ interface TypewriterProps {
 
 const Typewriter = (props: TypewriterProps) => {
     const typingStrings = props.stringsArr;
-    const [currentString, setCurrentString] = useState(typingStrings[0]);
+    const [loaded, setLoaded] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [showText, setShowText] = useState(true);
 
     useEffect(() => {
-        if (currentIndex >= 0 && currentIndex < typingStrings.length) {
+        setLoaded(true);
+        const intervalId = setInterval(() => {
+            setShowText(false);
 
-            const timeout = setTimeout(() => {
-                setCurrentString(typingStrings[currentIndex]);
-                setCurrentIndex(currentIndex + 1);    
-            }, 3000);
+            setTimeout(() => {
+                setCurrentIndex(
+                    (currentIndex) => (currentIndex + 1) % typingStrings.length
+                );
+                setShowText(true);
+            }, 300);
+        }, 3000);
 
-            return () => {
-                clearTimeout(timeout);
-            };
-        } else {
-            setCurrentIndex(0);
-        }
-    }, [typingStrings, currentString, currentIndex]);
+        return () => clearInterval(intervalId);
+    }, [currentIndex, typingStrings.length]);
 
     return (
         <>
-            <span>
-                {currentString}
-            </span>
+            <Box>
+                <Fade in={showText} timeout={500}>
+                    <Box component="span">{typingStrings[currentIndex]}</Box>
+                </Fade>
+            </Box>
         </>
     );
 };
