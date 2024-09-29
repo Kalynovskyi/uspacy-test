@@ -184,6 +184,16 @@
     }
 }
 
+@media screen and (max-height: 1200px) {
+    .main-screen {
+        height: auto;
+    }
+
+    .scroll-down {
+        bottom: -4.625rem;
+    }
+}
+
 @keyframes scroll-icon {
     0% {
         transform: translateY(-10px);
