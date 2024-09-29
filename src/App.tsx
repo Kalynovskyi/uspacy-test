@@ -2,6 +2,8 @@ import "./App.css";
 import Form from "./components/Form/Form";
 import Header from "./components/Header/Header";
 import MainScreen from "./components/MainScreen/MainScreen";
+import StickyBanner from "./components/StickyBanner/StickyBanner";
+
 
 function App() {
     return (
@@ -14,6 +16,7 @@ function App() {
 
                 <Form></Form>
             </div>
+            <StickyBanner></StickyBanner>
         </div>
     );
 }

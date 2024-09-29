@@ -1,0 +1,31 @@
+.sticky-banner {
+    width: 100vw;
+    padding: 0.875rem 0 1.125rem;
+    background-color: #452AF4;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.sticky-banner-title {
+    padding-right: 2.438rem;
+    position: relative;
+}
+
+.sticky-banner-title:after {
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 2px;
+    background-color: #fff;
+    right: calc(0px - 19px);
+    top: calc(50% - 1px);
+}
+
+.sticky-banner-date {
+    padding-left: 2.438rem;
+}
