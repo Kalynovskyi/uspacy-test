@@ -6,8 +6,5 @@
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.main-screen-container {
-  height: 100vh;
+  padding: 0 1.25rem;
 }
