@@ -29,11 +29,9 @@ const Typewriter = (props: TypewriterProps) => {
 
     return (
         <>
-            <Box>
-                <Fade in={showText} timeout={500}>
-                    <Box component="span">{typingStrings[currentIndex]}</Box>
-                </Fade>
-            </Box>
+            <Fade in={showText} timeout={500}>
+                <Box component="span">{typingStrings[currentIndex]}</Box>
+            </Fade>
         </>
     );
 };

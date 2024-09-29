@@ -17,7 +17,7 @@ function App() {
 
                 <Form></Form>
             </div>
-            <StickyBanner></StickyBanner>
+            <StickyBanner></StickyBanner>     
         </div>
     );
 }

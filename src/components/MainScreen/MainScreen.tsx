@@ -1,6 +1,7 @@
 import Button from "../Button/Button";
 import Typewriter from "../Typewriter/Typewriter";
 import styles from "./MainScreen.module.css";
+import { Slide, Grow, useMediaQuery } from "@mui/material";
 
 const MainScreen = () => {
     const typewriterArr = [
@@ -15,33 +16,47 @@ const MainScreen = () => {
         "візію",
         "допомогу",
     ];
+
+    const screenSm = useMediaQuery('(max-width:576px)');
+
     return (
         <div className={styles["main-screen"]}>
             <div className={styles.subtitle}>
                 <span className={styles["subtitle-name"]}>
-                    Онлайн-конференція
-                </span>{" "}
+                    <Slide direction="right" in={true} timeout={500}>
+                        <span>Онлайн-конференція</span>
+                    </Slide>
+                </span>
                 <span className={styles["subtitle-date"]}>
-                    30 квітня о 10:00
+                    <Slide direction={screenSm ? 'right' : 'left'} in={true} timeout={500}>
+                        <span>30 квітня о 10:00</span>
+                    </Slide>
                 </span>
             </div>
             <h1 className={styles["main-title"]}>
                 Ми віримо у <br /> <Typewriter stringsArr={typewriterArr} />
             </h1>
-
-            <Button className="button-done">Зареєструватися</Button>
+            <Grow in={true} timeout={500}>
+                <div>
+                    <Button className="button-done">Зареєструватися</Button>
+                </div>
+            </Grow>
 
             <div className={styles["description-block"]}>
-                <h2 className={styles["description-title"]}>
-                    Про що ця <br /> онлайн-конференція
-                </h2>
-                <p className={styles["description-subtitle"]}>
-                    {" "}
-                    Щодня ми ходимо на роботу, зустрічаємося з друзями, донатимо
-                    на Перемогу, робимо рутинні речі. Але чи замислюємося ми
-                    щодня навіщо це все? Чи є у цьому сенс? Чи бачимо ми своє
-                    майбутнє? Чи мріємо ми?
-                </p>
+                <Slide direction="right" in={true} timeout={500}>
+                    <h2 className={styles["description-title"]}>
+                        Про що ця <br /> онлайн-конференція
+                    </h2>
+                </Slide>
+                <Slide direction="left" in={true} timeout={500}>
+                    <p className={styles["description-subtitle"]}>
+                        {" "}
+                        Щодня ми ходимо на роботу, зустрічаємося з друзями,
+                        донатимо на Перемогу, робимо рутинні речі. Але чи
+                        замислюємося ми щодня навіщо це все? Чи є у цьому сенс?
+                        Чи бачимо ми своє майбутнє? Чи мріємо ми?
+                    </p>
+                </Slide>
             </div>
             <div className={styles["undertext"]}>
                 <svg
