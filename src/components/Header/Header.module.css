@@ -2,5 +2,12 @@
     padding: 4.625rem 0;
     display: flex;
     align-items: center;
-    justify-content:space-between
+    justify-content:space-between;
+    position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+    .header {
+        padding: 2.313rem 0;
+    }
 }

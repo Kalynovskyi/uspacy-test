@@ -30,3 +30,15 @@
     background-color: #452AF4;
     color: #fff;
 }
+
+@media screen and (min-width: 576px) {
+    .mobile-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .button-with-icon {
+        display: none;
+    }
+}

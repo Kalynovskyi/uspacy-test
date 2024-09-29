@@ -54,9 +54,9 @@ const Form: React.FC = () => {
 
     return (
         <div className={styles["form-container"]}>
-            <h2 className={`${styles.formTitle}`}>
+            <h3 className={`${styles.formTitle}`}>
                 Відвідати <br /> онлайн-конференцію
-            </h2>
+            </h3>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className={`${styles.form}`}

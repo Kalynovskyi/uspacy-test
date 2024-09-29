@@ -8,6 +8,7 @@ import StickyBanner from "./components/StickyBanner/StickyBanner";
 function App() {
     return (
         <div className="App">
+            <div className="bg-image-container"></div>
             <div className="wrapper">
                 <div className="main-screen-container">
                     <Header></Header>

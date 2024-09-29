@@ -34,11 +34,11 @@
 }
 
 .main-title {
-    font-size: 7.5rem;
+    font-size: clamp(2.375rem, -1.184rem + 11.3889vw, 7.5rem);
     font-weight: 900;
     text-align: center;
     padding-bottom: 3.125rem;
-    line-height: 105.6px;
+    line-height: 1;
 }
 
 .description-block {
@@ -51,13 +51,13 @@
 .description-title {
     width: 38%;
     font-weight: 800;
-    font-size: 2.125rem;
+    font-size: clamp(1.5rem, 1.066rem + 1.3889vw, 2.125rem);
     margin-right: 1.688rem;
 }
 
 .description-subtitle {
     width: 61%;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 0.6528rem + 1.1111vw, 1.5rem);
     margin-left: 1.688rem;
     line-height: 36px;
     font-weight: 400;
@@ -73,7 +73,7 @@
     position: absolute;
     width: 28px;
     height: 54px;
-    background-color: rgba(255,255,255, .03);
+    background-color: rgba(255, 255, 255, .03);
     bottom: 4.625rem;
     border-radius: 100px;
 }
@@ -104,4 +104,70 @@
     bottom: 13px;
     left: calc(50% - 3.55px);
     transform: rotate(-45deg);
+}
+
+
+@media screen and (max-width: 576px) {
+    br {
+        display: none;
+    }
+    .main-screen {
+        height: auto;
+    }
+
+    .main-screen > * {
+        z-index: 10;
+    }
+
+    .subtitle {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .subtitle-name {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle-name:after {
+        right: 0;
+        transform: translate(0) rotate(30deg);
+    }
+
+    .description-block {
+        flex-direction: column;
+    }
+
+    .description-title,
+    .description-subtitle {
+        width: 100%;
+        margin: 0;
+    }
+
+    .description-title {
+        margin-bottom: 1.25rem;
+    }
+
+    .description-subtitle {
+        line-height: 1.5;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
+    .undertext {
+        transform-origin: top left;
+        transform: rotate(90deg); 
+        bottom: initial;
+        width: 100vh;
+        height: 100vw;
+        left: 50%;
+        top: 0;
+        z-index: 1;
+    }
+
+    .undertext svg {
+        width: 100%;
+    }
 }

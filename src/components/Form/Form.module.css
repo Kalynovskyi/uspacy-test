@@ -1,12 +1,12 @@
 .form-container {
     padding: 10rem 0 9.063rem;
-
+    position: relative;
     max-width: 455px;
     margin: 0 auto;
 }
 
 .formTitle {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1.1528rem + 1.1111vw, 2rem);
     font-weight: 800;
     margin-bottom: 1.25rem;
 }
@@ -55,10 +55,6 @@
     color: #fff;
     font-weight: 500;
     font-size: 1rem;
-}
-
-.form textarea {
-
 }
 
 .form input:focus,
@@ -111,4 +107,14 @@
 
 .buttonContainer {
     text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+    br {
+        display: none;
+    }
+    
+    .form-container {
+        padding: 5rem 0 6.25rem;
+    }
 }

@@ -9,7 +9,7 @@ const Header = () => {
                 <img src={logo} alt="Main Logo" />
             </div>
 
-            <Button>Зареєструватися</Button>
+            <Button isMobileIcon={true}>Зареєструватися</Button>
         </header>
     );
 }

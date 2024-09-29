@@ -1,6 +1,6 @@
 .sticky-banner {
     width: 100vw;
-    padding: 0.875rem 0 1.125rem;
+    padding: 0.875rem 1.25rem 1.125rem;
     background-color: #452AF4;
     color: #fff;
     position: fixed;
@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     font-weight: 600;
+    z-index: 100;
 }
 
 .sticky-banner-title {
@@ -28,4 +29,28 @@
 
 .sticky-banner-date {
     padding-left: 2.438rem;
+}
+
+@media screen and (max-width: 576px) {
+    .sticky-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sticky-banner-title,
+    .sticky-banner-date {
+        padding: 0;
+    }
+
+    .sticky-banner-title {
+        margin-bottom: 1.25rem;
+    }
+
+
+    .sticky-banner-title:after {
+        bottom: -0.625rem;
+        top: initial;
+        left: 0;
+    }
+
 }
